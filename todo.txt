@@ -1,4 +1,0 @@
-This is my to-do list for 12/30/2012:
-1. learn Vim basics
-2. learn Github basics
-3. tunnel into Amazon AMI
