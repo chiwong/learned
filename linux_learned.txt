@@ -1,0 +1,7 @@
+to get a file from a http url
+wget url
+ie) wget http://gitimmersion.com/git_tutorial.zip
+
+to switch between two directories
+pushd new_directory
+

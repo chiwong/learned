@@ -1,0 +1,11 @@
+commands learned in vim 12/30/2012
+
+hit Esc for command mode
+hit "i" for insert mode
+"x" will delete character at cursor
+"dd" will delete entire line
+h,j,k,l maps to left, down, up, right
+"20x" deletes 20 characters
+":q" will quit
+":q! will quit without saving
+":w filename" will save file as filename

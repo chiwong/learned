@@ -1,0 +1,65 @@
+all commands are learned from gitimmersion.com tutorial
+
+to initialize a repository
+git init
+
+to check status of repository
+git status
+
+to stage a file for commit
+git add filename
+ie) git add hello.rb
+
+to commit a file with a comment
+git commit filename -m comment
+ie) git commit hello.rb -m "first commit"
+ie) git commit -m "first commit"
+
+to view commit history
+git log
+
+to view commit history in one line format
+git log --pretty=oneline
+
+to create aliases, go to the .gitconfig file in the $HOME directory
+add lines such as the following
+
+[alias]
+co = checkout
+ci = commit
+st = status
+br = branch
+hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+type = cat-file -t
+dump = cat-file -p
+
+to checkout an older version of commit
+git checkout <hash>
+
+to return to the latest master commit
+git checkout master
+
+to check the git version
+git --version
+
+to tag a version
+git tag version_id
+ie) git tag v1
+then to go to the version use,
+git checkout v1
+or to go to the parent of the version use,
+git checkout v1^
+
+to revert/undo a committed version
+git revert HEAD
+
+to revert/undo a committed version and "remove" it from the view of the master
+branch
+git reset <hash or tag>
+
+to remove a tag
+git tag -d <tag>
+
+to amend a commit
+git commit --ammend -m comment
+ie) git commit --amend -m "Added an author/email comment"
