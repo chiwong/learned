@@ -7,5 +7,6 @@ hit "i" for insert mode
 h,j,k,l maps to left, down, up, right
 "20x" deletes 20 characters
 ":q" will quit
-":q! will quit without saving
-":w filename" will save file as filename
+":q!" will quit without saving
+":w" filename" will save file as filename
+":e!" will revert file to original
