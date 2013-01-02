@@ -1,7 +1,9 @@
+<<<<<<< HEAD
 Cousera class
 
 Week 1
 Lecture - Data Types(31:06)
+=======
 R has five basic or "atomic" classes of objects
   character
   numeric (real numbers)
@@ -125,5 +127,4 @@ And Matrices can also have names.
 ie) m <- matrix(1:4, nrow=2, ncol=2)
 ie) dimnames(m) <- list(c("a", "b"), c("c", "d"))
 ie) m
-
 
