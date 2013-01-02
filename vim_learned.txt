@@ -9,4 +9,4 @@ h,j,k,l maps to left, down, up, right
 ":q" will quit
 ":q!" will quit without saving
 ":w" filename" will save file as filename
-":e!" will revert file to original
+":e!" wipe all current edits and revert file to original

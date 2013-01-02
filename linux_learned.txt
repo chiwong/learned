@@ -5,3 +5,4 @@ ie) wget http://gitimmersion.com/git_tutorial.zip
 to switch between two directories
 pushd new_directory
 
+"df" means disk free, checks system disk free diskspace
