@@ -1,0 +1,9 @@
+1/1/2013 Javascript & JQuery: The Missing Manual
+
+CHAPTER 1
+#In the <head> of the html document, 
+#to use javascript to write to html page
+<script> document.write('<p>hello world</p>'); </script>
+#to link to an external javascript file
+<script src="../_js/jquery-1.7.2.min.js"></script>
+
