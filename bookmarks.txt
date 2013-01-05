@@ -1,1 +1,3 @@
 placeholder file for new bookmarks
+
+http://stackoverflow.com/questions/9172802/setting-up-vim-for-python
