@@ -94,6 +94,11 @@ git branch -a
 #to fetch updates from a remote repository but not merge
 git fetch 
 #then you'll need to manually merge the results
+
+#to push to the repository origin
+git push origin
+
+
 git merge origin/master
 
 #git pull is equivalent to a git fetch followed by a git merge (as above)
