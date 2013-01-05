@@ -104,5 +104,8 @@ git branch --track greet origin/greet
 git branch -a
 git hist --max-count=2
 
+#to push to origin
+git push origin
+
 
 
