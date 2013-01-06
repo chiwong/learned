@@ -128,3 +128,131 @@ ie) m <- matrix(1:4, nrow=2, ncol=2)
 ie) dimnames(m) <- list(c("a", "b"), c("c", "d"))
 ie) m
 
+There are a number of operators that can be used to extract subsets of R
+objects.
+[ always returns an object of the same class as the original; can be used to
+select more than one element(there is one exception)
+[[ is used to extract elements of a list or a data frame it can only be used
+to extract a single element and the class of the returned object will not
+necessarily be a list or data frame
+$ is used to extract elements of a list or data frame by name; semantics are
+similar to hat of [[
+ie) <- c("a", "b", "c", "c", "d", "a")
+ie) x[1]
+[1] "a"
+ie) x[2]
+[1] "b"
+ie) x[1:4]
+[1] "a" "b" "c" "c"
+ie) x[x > "a"]
+[1] "b" "c" "c" "d"
+ie) u <- x > "a"
+[1] FALSE TRUE TRUE TRUE TRUE FALSE
+ie) x[u]
+[1] "b" "c" "c" "d"
+create a 2x3 matrix in the 1:6 range, and get subset elements
+ie) x <- matrix(1:6, 2, 3)
+ie) x[1, 2]
+[1] 3
+ie) x[2, 1]
+[1] 2
+indices can also be missing
+ie) x[1, ]
+[1] 1 3 5
+ie) x[, 2]
+[1] 3 4
+
+By default, when a single element of a matrix is retrieved, it is returned as
+a vector of length 1 rather than a 1x1 matrix. This behavior can be turned off
+by setting drop = FALSE.
+ie) x <- matrix(1:6, 2, 3)
+ie) x[1, 2]
+[1] 3
+ie) x[1, 2, drop = FALSE]
+    [, 1]
+[1,]   3
+
+Similarly, subsetting a single column or a single row will give you a vector,
+not a matrix (by default).
+ie) x <- matrix(1:6, 2, 3)
+ie) x[1, ]
+[1] 1 3 5
+ie) x[1, , drop = FALSE]
+    [,1] [,2] [,3]
+[1,]   1    3    5
+
+subsetting lists
+ie) x <- list(foo = 1:4, bar = 0.)
+ie) x[1]
+$foo
+[1] 1 2 3 4
+ie) x[[1]]
+[1] 1 2 3 4
+x$bar
+[1] 0.6
+ie) x[["bar"]]
+[1] 0.6
+ie) x["bar"]
+$bar
+[1] 0.6
+
+Extracting multiple elements of a list.
+ie) x <- list(foo = 1:4, bar = 0.6, baz = "hello")
+ie) x[c(1, 3)]
+$foo
+[1] 1 2 3 4
+$baz
+[1] "hello"
+
+The [[ operator can be used with computed indices; $ can only be used with
+literal names.
+ie) x <- list(foo = 1:4, bar = 0.6, baz = "hello")
+ie) name <- "foo"
+ie) x[[name]] ## computed index for 'foo'
+[1] 1 2 3 4
+ie) x$name ## element 'name' doesn't literally exist!
+NULL
+ie) x$foo ## element 'foo' does literally exist.
+[1] 1 2 3 4
+
+The [[ can take an integer sequence.
+ie) x <- list(a = list(10, 12, 14), b = c(3.14, 2.81))
+ie) x[[c(1, 3)]]
+[1] 14
+ie) x[[1]][[3]]
+[1] 14
+ie) x[[c(2, 1)]]
+[1] 3.14
+
+Partial matching of names is allowed with [[ and $
+ie) x <- list(aardvark = 1:5)
+ie) x$a
+[1] 1 2 3 4 5
+ie) x[["a"]] ##by default [[ doesn't do partial matching
+NULL
+ie) x[["a", exact = FALSE]]
+[1] 1 2 3 4 5
+
+A common task is to remove missing values (NAs).
+ie) x <- c(1, 2, NA, 4, NA, 5)
+ie) bad <- is.na(x)
+ie) x[!bad]
+[1] 1 2 4 5
+
+What if there are multiple things and you want to take the subset with no
+missing values?
+ie) x <- c(1, 2, NA, 4, NA, 5)
+ie) y <- c("a", "b", NA, "d", NA, "f")
+ie) good <- complete.cases(x, y)
+good
+[1] TRUE TRUE FALSE TRUE FALSE TRUE
+ie) x[good]
+[1] 1 2 4 5
+ie) y[good]
+[1] "a" "b" "d" "f"
+
+Let's say you have a data in a data frame, to get the rows of data w/o NA
+ie) airquality[1:6, ]
+ie) good <- complete.cases(airquality)
+ie) airquality[good, ][1:6, ]
+
